@@ -1,14 +1,14 @@
 /* eslint-disable no-shadow */
 /* eslint-disable default-case */
-import { Platform, Text, View, StyleSheet, InteractionManager } from 'react-native';
+import { Themes } from 'assets/themes';
 import React, { useEffect, useRef, useState } from 'react';
+import { InteractionManager, Platform, StyleSheet, Text, View } from 'react-native';
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
 import Modal from 'react-native-modal';
 import ProgressBar from 'react-native-progress/Bar';
-import i18next from 'utilities/i18next';
 import RNRestart from 'react-native-restart';
-import { Themes } from 'assets/themes';
+import i18next from 'utilities/i18next';
 
 const codePushKey =
     Platform.OS === 'ios' ? Config.CODEPUSH_IOS_DEVELOPMENT_KEY : Config.CODEPUSH_ANDROID_DEVELOPMENT_KEY;
@@ -23,7 +23,7 @@ const CodePushProgressDialog = () => {
     willMount.current = false;
 
     useEffect(() => {
-        InteractionManager.runAfterInteractions(checkForUpdate)
+        InteractionManager.runAfterInteractions(checkForUpdate);
     }, []);
 
     useEffect(() => {
